@@ -1,6 +1,4 @@
 import heapq
-import random
-import string
 from collections import Counter
 
 def countChars(data):
@@ -41,21 +39,20 @@ def save_encoded(encoded_text, codes, out_path_base):
     # with open(out_path_base + ".bin", "w") as f:
     #     f.write(encoded_text)
 
-    # Convert bit string to actual binary bytes
-    padding_length = (8 - len(encoded_text) % 8)
-    padded_text = encoded_text + '0' * padding_length  # Add padding if needed
     
-    # Pack bits into bytes
+    padding_length = (8 - len(encoded_text) % 8)
+    padded_text = encoded_text + '0' * padding_length  
+    
+    
     byte_array = bytearray()
     for i in range(0, len(padded_text), 8):
         byte_str = padded_text[i:i+8]
         byte = int(byte_str, 2)
         byte_array.append(byte)
     
-    # Save binary data
-    with open(out_path_base + ".bin", "wb") as f:  # Note 'wb' for binary mode
+    
+    with open(out_path_base + ".bin", "wb") as f:  
         f.write(byte_array)
-        # Store padding info in first byte
         f.write(padding_length.to_bytes(1, 'big'))
 
     with open(out_path_base + ".codebook.txt", "w") as f:
