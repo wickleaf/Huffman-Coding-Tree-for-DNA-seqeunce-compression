@@ -44,15 +44,14 @@ def save_encoded(encoded_text, codes, out_path_base):
     padded_text = encoded_text + '0' * padding_length  
     
     
-    byte_array = bytearray()
+    byteArray = bytearray()
     for i in range(0, len(padded_text), 8):
-        byte_str = padded_text[i:i+8]
-        byte = int(byte_str, 2)
-        byte_array.append(byte)
-    
+        byteStr = padded_text[i:i+8]
+        byte = int(byteStr, 2)
+        byteArray.append(byte)
     
     with open(out_path_base + ".bin", "wb") as f:  
-        f.write(byte_array)
+        f.write(byteArray)
         f.write(padding_length.to_bytes(1, 'big'))
 
     with open(out_path_base + ".codebook.txt", "w") as f:
