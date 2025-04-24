@@ -129,5 +129,6 @@ def compress_file(input_path, output_path_base,codes=None):
     save_encoded(encoded_text, codes, output_path_base)
     return codes
 
-compress_file("test2.txt", "test_output")
+
+#compress_file("compressible.txt", "test_output")
 
