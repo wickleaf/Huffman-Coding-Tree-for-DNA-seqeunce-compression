@@ -60,16 +60,18 @@ def save_encoded(encoded_text, codes, out_path_base):
             f.write(f"{display_char}:{code}\n")
 
 
-def compress_file(input_path, output_path_base):
+def compress_file(input_path, output_path_base,codes=None):
     with open(input_path, "r", encoding="utf-8") as f:
         text = f.read()
 
     freqs = countChars(text)
     tree = treeBuilder(freqs)
-    codes = assignCode(tree)
+    if codes is None:
+        codes = assignCode(tree)
     encoded_text = buildCodeString(codes, text)
 
     save_encoded(encoded_text, codes, output_path_base)
+    return codes
 
 
 compress_file("test2.txt", "test_output")
