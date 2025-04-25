@@ -4,4 +4,5 @@ Uses a huffman coding tree to compress an input DNA sequence and checks it for m
 
 References:
 https://youtu.be/_Kl3TtBXxq8?si=1kAIQLWDIj7vscyI
+
 https://youtu.be/JCOph23TQTY?si=iUKH_bJr70jZs1FV
