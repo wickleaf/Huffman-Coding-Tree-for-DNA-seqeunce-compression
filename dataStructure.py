@@ -122,6 +122,7 @@ def compress_file(input_path, output_path_base,codes=None):
 
     freqs = countChars(text)
     tree = treeBuilder(freqs)
+    print(tree)
     if codes is None:
         codes = assignCode(tree)
     encoded_text = buildCodeString(codes, text)
@@ -130,5 +131,5 @@ def compress_file(input_path, output_path_base,codes=None):
     return codes
 
 
-#compress_file("compressible.txt", "test_output")
+compress_file("compressible.txt", "test_output")
 

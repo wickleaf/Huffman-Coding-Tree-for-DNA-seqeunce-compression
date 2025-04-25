@@ -1,7 +1,7 @@
 # main.py
 from dataStructure import compress_file
 from helper_functions import *
-
+from treeADTS import *
 
 def process_and_compare(file1, file2, base1, base2):
     print("Compressing files...")

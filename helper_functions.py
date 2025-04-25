@@ -63,7 +63,6 @@ def compare_compressed_bin_files_same_codebook(bin_path_1, bin_path_2, codebook_
                 mutations.append((i, c1, c2))
             i += 1
     except StopIteration:
-        # handle case where one file is longer than the other
         try:
             for c1 in gen1:
                 mutations.append((i, c1, '-'))
